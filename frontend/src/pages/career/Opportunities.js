@@ -6,6 +6,7 @@ import axios from 'axios'
 import toast from "react-hot-toast"
 import pageStyle from "./opportunity.module.css"
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 function Opportunities() {
   const [allData, setAlldata] = useState([]);
   const navigateTO = useNavigate();
@@ -15,7 +16,6 @@ function Opportunities() {
   }
   useEffect(() => {
     axios.get(`${BACKEND_URL}user/opportunities`).then((response) => {
-      console.log(response.data);
       if (response.data.success) {
         setAlldata(response.data.opportunityData)
       }
@@ -23,7 +23,6 @@ function Opportunities() {
       toast.error(`${error.response.data.msg}`)
     })
   }, [])
-  // console.log(allData);
   return (
     <section className={`${pageStyle.__careerPage_Container}`} >
       {

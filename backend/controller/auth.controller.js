@@ -83,10 +83,15 @@ const userSignIn = async (request, response) => {
                 expiresIn: "72h",
             });
             isUserExists.userPassword = undefined;
-            isUserExists.UserDetails = generatedToken;
-            await userCollection.findOneAndUpdate({
+            isUserExists.token = generatedToken;
+            await userCollection.findOneAndUpdate(
+            {
+                userEmail : tempUser.userID,
+            }
+            {
                 token: generatedToken
-            })
+            }
+        )
             return response.send({
                 success: true,
                 UserDetails: isUserExists,
