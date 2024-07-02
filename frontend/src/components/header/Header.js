@@ -1,6 +1,6 @@
 import React from 'react'
 import headerStyle from "./header.module.css"
-import Logo from "../../assets/Logo.png"
+import Logo from "../../assets/internshala_logo.jpg"
 import { NavLink } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 import { UserLogOut } from '../../redux/ReduxSlice'

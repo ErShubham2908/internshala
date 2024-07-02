@@ -6,8 +6,10 @@ const dotENV = require("dotenv");
 const { mongooseConnection } = require("./config/mongooseConnection");
 const { authRoutes } = require("./router/auth.routes");
 const { userRoutes } = require("./router/user.routes");
-
 dotENV.config();
+
+const PORT = process.env.PORT || 8080;
+
 appServer.use(express.json());
 appServer.use(
   cors({
@@ -17,7 +19,7 @@ appServer.use(
 appServer.use("/api/v1/auth", authRoutes)
 appServer.use("/api/v1/user", userRoutes)
 
-appServer.listen(5000, async () => {
+appServer.listen(PORT, async () => {
   try {
     await mongooseConnection();
     console.log(`SERVER STARED  : http://localhost:${process.env.PORT}`);
