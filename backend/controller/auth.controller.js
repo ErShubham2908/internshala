@@ -87,7 +87,7 @@ const userSignIn = async (request, response) => {
             await userCollection.findOneAndUpdate(
             {
                 userEmail : tempUser.userID,
-            }
+            },
             {
                 token: generatedToken
             }
