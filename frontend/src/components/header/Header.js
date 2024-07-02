@@ -14,7 +14,9 @@ function Header() {
   }
   return (
     <header className={`${headerStyle.__App_header}`}>
-      <img src={Logo} alt="App_LOGO" className={`${headerStyle.__appLOGO}`} />
+      <NavLink to={`/`}>
+        <img src={Logo} alt="App_LOGO" className={`${headerStyle.__appLOGO}`} />
+      </NavLink>
       <nav className={`${headerStyle.__appNav}`}>
         <NavLink to={`/`} className={`${headerStyle.__appNavItems}`}> Career </NavLink>
         {
